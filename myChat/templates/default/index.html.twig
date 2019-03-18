@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <h1 class="text-center mt-5"> Simple Chat Test Project</h1>
+
+    {{ form_start(form , {'attr': {'novalidate' : 'novalidate'}}) }}
+    <div class="row mt-5">
+        <div class="col-sm-5 offset-sm-3">
+            {{ form_widget(form) }}
+        </div>
+
+        <div class="col-sm-1">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </div>
+
+    </div>
+    {{ form_end(form) }}
+
+<table class="table table-striped mt-5">
+    <tr>
+        <td>Created At</td>
+        <th>Message</th>
+    </tr>
+    {% for messege in messeges %}
+    <tr>
+
+        <td>{{messege.createdAt| date("d.m.y   h:m:s")  }}</td>
+        <td>{{messege.messege  }}</td>
+   </tr>
+    {% endfor %}
+
+</table>
+
+
+
+</div>
+
+
+
+{% endblock %}
