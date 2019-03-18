@@ -19,6 +19,11 @@ class MessegeRepository extends ServiceEntityRepository
         parent::__construct($registry, Messege::class);
     }
 
+    public function findOrder()
+    {
+        return $this->findBy(array(), array('createdAt' => 'DESC'),10);
+    }
+
     // /**
     //  * @return Messege[] Returns an array of Messege objects
     //  */
